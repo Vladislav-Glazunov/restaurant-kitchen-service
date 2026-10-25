@@ -55,7 +55,7 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:dishtype-list")
 
 
-class DishlistView(LoginRequiredMixin, generic.ListView):
+class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     queryset = Dish.objects.select_related("dish_type")
     context_object_name = "dish_list"
