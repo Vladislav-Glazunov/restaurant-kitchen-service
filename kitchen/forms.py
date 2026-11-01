@@ -27,8 +27,10 @@ class CookCreationForm(UserCreationForm):
         )
 
     def clean_years_of_experience(self):
-        if self.cleaned_data["years_of_experience"] < 0:
+        years = self.cleaned_data.get("years_of_experience")
+        if years is not None and years < 0:
             raise ValidationError("Years of experience cannot be negative")
+        return years
 
 
 class CookUpdateForm(forms.ModelForm):
@@ -37,8 +39,10 @@ class CookUpdateForm(forms.ModelForm):
         fields = ["years_of_experience"]
 
     def clean_years_of_experience(self):
-        if self.cleaned_data["years_of_experience"] < 0:
+        years = self.cleaned_data.get("years_of_experience")
+        if years is not None and years < 0:
             raise ValidationError("Years of experience cannot be negative")
+        return years
 
 
 class CookSearchForm(forms.Form):
