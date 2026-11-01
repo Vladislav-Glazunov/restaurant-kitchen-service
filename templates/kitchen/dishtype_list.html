@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Dish Type List
+    <a href="{% url 'kitchen:dishtype-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  {% block search_form %}
+    {% include "includes/search_form.html" %}
+  {% endblock %}
+  {% if dish_type_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for dishtype in dish_type_list %}
+        <tr>
+          <td>
+            {{ dishtype.id }}
+          </td>
+          <td>
+            {{ dishtype.name }}
+          </td>
+          <td>
+            <a
+                href="{% url 'kitchen:dishtype-update' pk=dishtype.id %}" class="btn btn-success link-to-page">
+              Update
+            </a>
+          </td>
+          <td>
+            <a
+                href="{% url 'kitchen:dishtype-delete' pk=dishtype.id %}" class="btn btn-danger link-to-page">
+              Delete
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no dish types in the service.</p>
+  {% endif %}
+{% endblock %}
