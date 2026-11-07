@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "kitchen.context_processors.cfg_assets_root",
             ],
         },
     },
@@ -126,6 +127,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+ASSETS_ROOT = "/static/assets"
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Email
@@ -138,6 +141,8 @@ MAILERS = {
 }
 
 AUTH_USER_MODEL = "kitchen.Cook"
+
+LOGIN_REDIRECT_URL = "kitchen:index"
 
 INTERNAL_IPS = [
     # ...

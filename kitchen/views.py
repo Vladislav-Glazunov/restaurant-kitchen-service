@@ -18,6 +18,7 @@ from kitchen.forms import (
 def index(request):
     num_dishes = Dish.objects.count()
     num_dish_types = DishType.objects.count()
+    num_ingredient = Ingredient.objects.count()
     num_cooks = Cook.objects.count()
 
     num_visits = request.session.get("num_visits", 0)
@@ -26,6 +27,7 @@ def index(request):
     context = {
         "num_dish_types": num_dish_types,
         "num_dishes": num_dishes,
+        "num_ingredient": num_ingredient,
         "num_cooks": num_cooks,
         "num_visits": num_visits + 1,
     }
