@@ -51,7 +51,9 @@
           </tr>
         {% endfor %}
       </table>
-
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
     {% else %}
       <p>There are no dishes in the service.</p>
     {% endif %}

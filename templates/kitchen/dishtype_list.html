@@ -43,7 +43,9 @@
           </tr>
         {% endfor %}
       </table>
-
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
     {% else %}
       <p>There are no dish types in the service.</p>
     {% endif %}
