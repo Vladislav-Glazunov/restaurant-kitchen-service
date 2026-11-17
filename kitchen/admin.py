@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from kitchen.models import DishType, Dish, Cook, Ingredient
 
+
 @admin.register(DishType)
 class DishTypeAdmin(admin.ModelAdmin):
     list_display = ("name",)
@@ -16,7 +17,7 @@ class IngredientAdmin(admin.ModelAdmin):
 
 @admin.register(Dish)
 class DishAdmin(admin.ModelAdmin):
-    list_display = ("name", "dish_type","price")
+    list_display = ("name", "dish_type", "price")
     list_filter = ("dish_type",)
     search_fields = ("name",)
     filter_horizontal = ("ingredients",)
