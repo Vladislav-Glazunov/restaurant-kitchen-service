@@ -31,7 +31,7 @@ urlpatterns = [
     path(
         "dishtypes/create/",
         DishTypeCreateView.as_view(),
-        name= "dishtype-create"
+        name="dishtype-create"
     ),
     path(
         "dishtypes/<int:pk>/update/",
@@ -46,12 +46,12 @@ urlpatterns = [
     path(
         "dishes/",
         DishListView.as_view(),
-        name = "dish-list"
+        name="dish-list"
     ),
     path(
         "dishes/<int:pk>/",
         DishDetailView.as_view(),
-        name = "dish-detail"
+        name="dish-detail"
     ),
     path(
         "dishes/create/",
@@ -59,7 +59,7 @@ urlpatterns = [
         name="dish-create"
     ),
     path(
-        "dishes/<int:pk>/update/", 
+        "dishes/<int:pk>/update/",
         DishUpdateView.as_view(),
         name="dish-update"
     ),
