@@ -167,6 +167,7 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
+    paginate_by = 5
 
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
