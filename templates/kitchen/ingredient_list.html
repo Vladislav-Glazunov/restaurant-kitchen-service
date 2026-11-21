@@ -1,0 +1,50 @@
+{% extends 'layouts/base-fullscreen.html' %}
+{% block title %}All Ingredients{% endblock %}
+{% block content %}
+  <div class="container mt-7">
+    <h1>
+      Ingredient List
+      <a style="float: right" href="{% url 'kitchen:ingredient-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
+    {% if ingredient_list %}
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Ingredient name</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+
+        {% for ingredient in ingredient_list %}
+          <tr>
+            <td>
+              {{ ingredient.id }}
+            </td>
+            <td>
+              {{ ingredient.name }}
+            </td>
+            <td>
+              <a
+                  href="{% url 'kitchen:ingredient-update' pk=ingredient.id %}" class="btn btn-success link-to-page">
+                Update
+              </a>
+            </td>
+            <td>
+              <a
+                  href="{% url 'kitchen:ingredient-delete' pk=ingredient.id %}" class="btn btn-danger link-to-page">
+                Delete
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
+    {% else %}
+      <p>There are no ingredients in the service.</p>
+    {% endif %}
+  </div>
+{% endblock %}
